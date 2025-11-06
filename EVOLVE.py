@@ -205,7 +205,7 @@ class evolve_collision:
         vels        = [ self.vel1, self.vel2 ]  # assingn delta-V randomly to the particles input vectors
                                                 # KNW: TODO: this should correlate with impactor mass (fix later)
         idx         = np.random.choice( [0,1], size=self.fragment_count )  # pick which input velocity
-        rand_sphere = np.random.uniform( size=(self.fragment_count,3) )    # generate uniform random over sphere
+        rand_sphere = np.random.normal( size=(self.fragment_count,3) )    # generate uniform random over sphere
         rand_mag    = np.linalg.norm( rand_sphere, axis=1 )
         rand_vec    = rand_sphere / rand_mag[:,np.newaxis]
         del_V       = self.dv[:,np.newaxis] * rand_vec
